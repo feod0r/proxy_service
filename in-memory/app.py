@@ -85,3 +85,8 @@ def allocate(proc_id,ttl,country):
 @app.route("/allocate/<proc_id>/<ttl>")
 def allocate_no_country(proc_id,ttl):
     return service.allocate_proxy(int(proc_id),int(ttl),'')
+
+
+if __name__ == "__main__":
+    from waitress import serve
+    serve(app, host="0.0.0.0", port=5000)
